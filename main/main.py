@@ -1,13 +1,12 @@
 import pandas as pd
 from os import mkdir
-from glob import glob
 from datetime import datetime
 import os
 
 
 def main():
-    EXCEL_NAME = "informations.xlsx"
-    EMAIL_NAME = "furkan_email.txt"
+    EXCEL_NAME = "./informations.xlsx"
+    EMAIL_NAME = "./furkan_email.txt"
     DIRECTION_NAME = datetime.today().strftime("%Y-%m-%d")
     # TITLE
     TITLE = "Internship Inquiry - [field]"
@@ -41,7 +40,6 @@ def main():
 
     df = pd.read_excel(EXCEL_NAME)
     df = df.iloc[starting_point:]
-
     if df.shape[0] != 0:
         try:
             mkdir(DIRECTION_NAME)
